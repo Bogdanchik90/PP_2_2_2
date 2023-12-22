@@ -1,6 +1,5 @@
 package web.controller;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,10 +8,10 @@ import web.service.CarService;
 
 
 @Controller
-@Component
 public class CarController {
 
     private CarService carService;
+
     public CarController(CarService carService) {
         this.carService = carService;
     }
@@ -21,7 +20,7 @@ public class CarController {
     public String sayHelloParam(@RequestParam(value = "count", required = false) Integer count,
                                 Model model) {
 
-        model.addAttribute("cars",carService.getCars(count));
+        model.addAttribute("cars", carService.getCars(count));
         return "cars";
     }
 
